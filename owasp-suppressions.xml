@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+
+  <suppress>
+    <notes><![CDATA[
+    Der Verwundbarkeiten gibt es nur im Test-Framework, das kein Teil des Deployments ist. Daher excluden wir diese.
+    ]]></notes>
+    <filePath regex="true">.*cucumber.*</filePath>
+    <cve>CVE-2020-8908</cve>
+    <cve>CVE-2021-22569</cve>
+    <cve>CVE-2022-25647</cve>
+    <cve>CVE-2022-3171</cve>
+    <cve>CVE-2023-2976</cve>
+  </suppress>
+
+  <!--  <suppress>-->
+  <!--    <notes><![CDATA[-->
+  <!--   Es handelt sich um eine Anfälligkeit bei Hot Rod, aber Redis verwendet nicht das Hot Rod-Protokoll.-->
+  <!--   ]]></notes>-->
+  <!--    <packageUrl regex="true">^pkg:maven/io\.netty/netty-.*@.*$</packageUrl>-->
+  <!--    <cve>CVE-2023-4586</cve>-->
+  <!--  </suppress>-->
+
+  <!--  <suppress>-->
+  <!--    <notes><![CDATA[-->
+  <!--   False-Positives, die durch den Brave-Browser kommen, werden unterdrückt.-->
+  <!--   ]]></notes>-->
+  <!--    <packageUrl regex="true">^pkg:maven/io\.micrometer/micrometer\-tracing\-bridge\-brave@.*$</packageUrl>-->
+  <!--    <cpe>cpe:/a:brave:brave</cpe>-->
+  <!--  </suppress>-->
+
+  <!--  <suppress>-->
+  <!--    <notes><![CDATA[-->
+  <!--  Die Flapdoodle-MongoDB wird nur für die Unit-Tests verwendet. Flapdoodle ist auch nur ein Wrapper um die eigentliche-->
+  <!--  MongoDB herunterzuladen. Die Versionsnummern von Flapdoodle haben nichts mit der MongoDB-Versionierung zu tun, daher-->
+  <!--  werden hier irgendwelche uralten MongoDB-Vulnerabilities erkannt, die uns gar nicht betreffen.-->
+  <!--   ]]></notes>-->
+  <!--    <packageUrl regex="true">^pkg:maven/de\.flapdoodle\.embed/de\.flapdoodle\.embed\.mongo.*@.*$</packageUrl>-->
+  <!--    <cpe>cpe:/a:mongodb:mongodb</cpe>-->
+  <!--  </suppress>-->
+  <!--  <suppress>-->
+  <!--    <notes><![CDATA[-->
+  <!--     False-Positives, die die MongoDB an sich betreffen, werden unterdrückt.-->
+  <!--     MongoCK ist von Fehlern in der MongoDB nicht betroffen und hat auch eine ganz andere Versionierung-->
+  <!--   ]]></notes>-->
+  <!--    <packageUrl regex="true">^pkg:maven/io\.mongock/mongodb.*-v4\-driver@.*$</packageUrl>-->
+  <!--    <cpe>cpe:/a:mongodb:mongodb</cpe>-->
+  <!--  </suppress>-->
+</suppressions>

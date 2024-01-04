@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.bennig</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>pomtest</artifactId>
+  <name>pomtest</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>de.flapdoodle.embed</groupId>
+      <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
+      <version>4.9.2</version>
+    </dependency>
+  </dependencies>
+
+     <build>
+        <plugins>
+          <plugin>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <version>9.0.7</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+              <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
+              <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+              <nvdValidForHours>40</nvdValidForHours>
+              <suppressionFiles>owasp-suppressions.xml</suppressionFiles>
+              <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
+              <nvdApiKey>xxxxxx</nvdApiKey>
+             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+</project>
